@@ -26,7 +26,10 @@
         <div class="flex gap-4">
             <a href="{{ route('tasks.edit', $task->id) }}" class="bg-yellow-500 text-white px-4 py-2 rounded">Edit</a>
             <a href="{{ route('tasks.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded">Back to List</a>
-            <a href="{{ route('tasks.copy', $task->id) }}" class="bg-cyan-500 text-white px-4 py-2 rounded">Copy (does not work do to maintenence)</a>
+            <form action="{{ route('tasks.copy', $task->id) }}" method="POST" onsubmit="return confirm('copy this task?')">
+                @csrf
+                <button class="text-red-500">Copy (does not work do to maintenence)</button>
+            </form>
         </div>
     </div>
 </x-layout>

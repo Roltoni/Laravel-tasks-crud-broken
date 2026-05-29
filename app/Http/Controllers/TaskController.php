@@ -70,12 +70,12 @@ class TaskController extends Controller
     public function copy(Request $request, Task $task)
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
+            'title' => 'copy of',
+            'description' => 'hello',
         ]);
 
         Task::create($validated);
 
-        return redirect()->route('tasks.index')->with('success', 'Task created successfully.');
+        return redirect()->route('tasks.index')->with('success', 'copy of task created successfully.');
     }
 }
