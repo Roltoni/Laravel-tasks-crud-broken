@@ -67,4 +67,15 @@ class TaskController extends Controller
         $task->delete();
         return redirect()->route('tasks.index')->with('success', 'Task deleted successfully.');
     }
+    public function copy(Request $request, Task $task)
+    {
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+        ]);
+
+        Task::create($validated);
+
+        return redirect()->route('tasks.index')->with('success', 'Task created successfully.');
+    }
 }

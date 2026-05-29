@@ -1,9 +1,9 @@
 <x-layout>
     <div class="bg-white p-6 rounded shadow max-w-2xl">
         <h2 class="text-2xl font-bold mb-2">{{ $task->title }}</h2>
-        
+
         <p class="text-gray-600 mb-4">
-            Status: 
+            Status:
             <form action="{{ route('tasks.update-status', $task->id) }}" method="POST" class="inline">
                 @csrf
                 @method('PATCH')
@@ -26,6 +26,7 @@
         <div class="flex gap-4">
             <a href="{{ route('tasks.edit', $task->id) }}" class="bg-yellow-500 text-white px-4 py-2 rounded">Edit</a>
             <a href="{{ route('tasks.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded">Back to List</a>
+            <a href="{{ route('tasks.copy', $task->id) }}" class="bg-cyan-500 text-white px-4 py-2 rounded">Copy (does not work do to maintenence)</a>
         </div>
     </div>
 </x-layout>
