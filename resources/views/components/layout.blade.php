@@ -22,8 +22,15 @@
         @if ($errors->any())
             <div class="bg-red-200 p-4 mb-4 rounded text-red-700">
                 <ul class="list-disc ml-5">
+                    @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
                     @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
                     @endforeach
+                </ul>
+            </div>
+        @endif
                 </ul>
             </div>
         @endif

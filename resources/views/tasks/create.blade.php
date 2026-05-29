@@ -1,6 +1,8 @@
 <x-layout>
     <h2 class="text-xl font-semibold mb-4">Create New Task</h2>
 
+
+
     <form action="{{ route('tasks.store') }}" method="POST" class="bg-white p-6 rounded shadow max-w-lg">
         @csrf
 
