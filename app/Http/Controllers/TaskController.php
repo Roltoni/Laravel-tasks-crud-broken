@@ -54,6 +54,11 @@ class TaskController extends Controller
 
     public function updateStatus(Request $request, Task $task)
     {
+        $validated = $request->validate([
+            'status' => 'required|string|max:255',
+        ]);
+        $task->update($validated);
+
         return redirect()->route('tasks.index')->with('success', 'Status updated successfully.');
     }
 
